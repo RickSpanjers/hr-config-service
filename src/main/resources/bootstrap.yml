@@ -1,0 +1,61 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  application:
+    name: config-server
+  security:
+    user:
+      name: admin
+      password: hrapplication
+    basic:
+      enabled: true
+  cloud:
+    config:
+      label: master
+      server:
+        native:
+          search-locations: classpath:shared
+        git:
+          uri:
+          force-pull: true
+          timeout: 10
+          username:
+          password:
+          default-label: master
+server:
+  port: 8081
+
+---
+
+spring:
+  profiles: prod
+  application:
+   name: config-server
+  security:
+    user:
+      name: admin
+      password: hrapplication
+    basic:
+      enabled: true
+  cloud:
+    config:
+      label: master
+      server:
+        native:
+          search-locations: classpath:shared
+        git:
+          uri:
+          force-pull: true
+          timeout: 10
+          username:
+          password:
+          default-label: master
+server:
+  port: 8081
+
+
