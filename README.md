@@ -1,0 +1,1 @@
+hr-config-service
